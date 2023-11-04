@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(10), // 원하는 만큼 조절
+              bottom: Radius.circular(15), // 원하는 만큼 조절
             ),
           ),
         ),
@@ -51,19 +51,3 @@ class PageSlider extends StatelessWidget {
     );
   }
 }
-/*class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'calentime',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialBinding: InitBinding(),
-      home: const App(),
-    );
-  }
-}*/
