@@ -1,6 +1,6 @@
 # calentime
 
-A new Flutter project.
+apps 프로젝트 calentime입니다 
 
 ## Getting Started
 
