@@ -1,4 +1,5 @@
 import 'package:calentime/const/colors.dart';
+import 'package:calentime/page/timetable_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,10 +31,17 @@ class _timetableState extends State<timetable> {
         ),
         backgroundColor: PRIMARY_color,
         centerTitle: true,
-        elevation: 0.0,
-        leading: Icon(Icons.edit),
-
-
+        elevation: 7.0, // 그림자
+        leading: IconButton(
+          icon: Icon(Icons.edit),
+          onPressed: (){
+            print("button click");
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TimetableEdit())
+            );
+          },
+        ),
       ),
 
       body: SafeArea(
@@ -183,4 +191,28 @@ class _timetableState extends State<timetable> {
   double calculateTimetableHeight(int lectureCount) {
     return lectureCount * kBoxSize;
   }
+}
+
+// 화면 전환 slide Transition
+class RouteTransition<T> extends MaterialPageRoute<T> {
+  RouteTransition ({required WidgetBuilder builder, RouteSettings? settings})
+      : super(builder: builder, settings: settings);
+
+  @override
+  Widget buildTransition(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child){
+    if (ModalRoute.of(context)!.isFirst)
+      return child;
+
+    const begin = Offset(0.0, 1.0); // 시작 위치 (아래에서 위로)
+    const end = Offset.zero; // 끝나는 위치 (화면의 맨 위)
+    var curveTween = CurveTween(curve: Curves.easeInOut); // 커브 효과
+
+    var offsetAnimation = Tween(begin: begin, end: end).chain(curveTween);
+
+    return SlideTransition(
+      position: animation.drive(offsetAnimation),
+      child: child,
+    );
+  }
+
 }

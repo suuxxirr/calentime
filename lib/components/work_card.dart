@@ -57,7 +57,7 @@ class _WorkCardState extends State<WorkCard> {
               child: widget.todoItem.isDone
                   ? Padding(
                 padding: const EdgeInsets.all(3.0),
-                child: SvgPicture.asset('assets/svg/icon_check.svg'), // 왜 안 뜸???
+                child: SvgPicture.asset('assets/svg/icon_check.svg'),
               )
                   : Container(),
             ),

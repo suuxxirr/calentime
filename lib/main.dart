@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:calentime/page/timetable.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
-//import 'home.dart';
+
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(15), // 원하는 만큼 조절
+              bottom: Radius.circular(20), // 원하는 만큼 조절
             ),
           ),
         ),
